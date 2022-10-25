@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WEB 231 – Enterprise JavaScript I</title>
+
+    <!--link to external stylesheet-->
+    <link href="../site.css" rel="stylesheet" type="text/css">
+    <link href="../global.css" rel="stylesheet" type="text/css">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="container">
+
+    <h1 id="payroll-header">Payroll System</h1>
+
+                <h3>Employee record 1</h3>
+                <ul>
+                    <li id="txtFirstNameAnna"></li>
+                    <li id="txtLastNameSquare"></li>
+                    <li id="txtAddressAnna"></li>
+                    <li id="txtHireDateAnna"></li>
+                    <li id="txtPayRateAnna"></li>
+                </ul>
+
+
+                <h3>Employee record 2</h3>            
+                <ul>
+                    <li id="txtFirstNameBob"></li>
+                    <li id="txtLastNameCircle"></li>
+                    <li id="txtAddressBob"></li>
+                    <li id="txtHireDateBob"></li>
+                    <li id="txtPayRateBob"></li>
+                </ul>
+
+
+                <h3>Employee record 3</h3>              
+                <ul>
+                    <li id="txtFirstNameTim"></li>
+                    <li id="txtLastNameStar"></li>
+                    <li id="txtAddressTim"></li>
+                    <li id="txtHireDateTim"></li>
+                    <li id="txtPayRateTim"></li>
+                </ul>
+    
+    <script>
+        /* variables for first name*/
+        const g= "Anna"
+        document.getElementById("txtFirstNameAnna").innerHTML= g
+
+        const h= "Bob"
+        document.getElementById("txtFirstNameBob").innerHTML= h
+
+        const i = "Tim"
+        document.getElementById("txtFirstNameTim").innerHTML= i
+
+        /*variables for last name*/
+        const j = "Square"
+        document.getElementById("txtLastNameSquare").innerHTML= j
+
+        const k = "Circle"
+        document.getElementById("txtLastNameCircle").innerHTML= k
+
+        const l = "Star"
+        document.getElementById("txtLastNameStar").innerHTML= l
+
+
+        /*variables for address*/
+        let m = "12 9th Ave."
+        document.getElementById("txtAddressAnna").innerHTML= m
+
+        let n = "8 7th Ave."
+        document.getElementById("txtAddressBob").innerHTML= n 
+
+        let o = "100 6th Ave."
+        document.getElementById("txtAddressTim").innerHTML= o 
+
+
+        /*variables for hire date*/
+        const a = new Date(2010, 9, 14);
+        document.getElementById("txtHireDateAnna").innerHTML = a. toLocaleDateString("en-US");
+        const b = new Date(2016, 5, 21);
+        document.getElementById("txtHireDateBob").innerHTML = b. toLocaleDateString("en-US");
+        const c = new Date(2020, 3, 8);
+        document.getElementById("txtHireDateTim").innerHTML = c. toLocaleDateString("en-US");
+
+
+        /*variables for pay rate*/
+        let PayRateAnna = 12.8546;
+        let d = PayRateAnna.toFixed(1);
+        document.getElementById("txtPayRateAnna").innerHTML = d;
+
+        let PayRateBob = 45.265789;
+        let e = PayRateBob.toFixed(1);
+        document.getElementById("txtPayRateBob").innerHTML = e;
+
+        let PayRateTim = 26.1984973;
+        let f = PayRateTim.toFixed(1);
+        document.getElementById("txtPayRateTim").innerHTML = f;        
+    </script>
+
+<a href="../index.html" id="return-home">Return</a>
+
+</div>
+
+
+</body>
+</html>

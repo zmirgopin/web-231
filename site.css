@@ -49,3 +49,9 @@ a:hover{
 a:visited{
     color: #3C275A;
 }
+
+ul{
+    border-style: dotted;
+    border-color: red;
+    border-width: 1px;
+}
