@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- opening code comment- code attribution 
+    https://www.w3schools.com/JSREF/event_onclick.asp
+    https://www.w3schools.com/jsref/jsref_parsefloat.asp
+    https://www.w3schools.com/jsref/prop_number_value.asp
+    https://stackoverflow.com/questions/35256974/user-input-is-not-recognized-as-integer
+   
+-->
+    <title>WEB 231 – Enterprise JavaScript I</title> 
+
+    <!--link to external stylesheet-->
+
+    <link href="../global.css" rel="stylesheet" type="text/css">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="container">
+    
+    <h1 class="app-header">Welcome to the Temperature Conversion App!
+    </h1>
+
+    <div id="Fahrenheit-to-Celsius-Converter">
+        <div class="card">
+            <div class="card-title">Fahrenheit to Celsius Converter</div>
+                    <div class="card-content">
+                            
+                       <!--form to fill in the fahrenheit temperature--> 
+                        <div class="form">
+                                        <div class="form-field">
+
+                                            <label for="input">Fahrenheit Value</label>
+                                            <input type="number" id="txtFahrenheit" class="input">
+
+                                        </div>
+
+                                        <div class="form-feild">
+                                        <!--button with the onclick command so that the conversion only happens when you click-->
+                                            <button id="btnConvert" class="btn btn-primary full width">Convert Temperature</button>
+                                        </div>
+                            </div>
+                        </div>
+             </div>
+
+        </div>
+    </div>
+ <!--this is where the results of the conversion appear-->
+    <div id="Results">
+        <div class="card">
+            <div class="card-title">Conversion Results</div> 
+            <div id="card-content"></div>
+        </div>
+    </div>
+
+
+
+<!--javascript code-->
+<script>
+
+document.getElementById("btnConvert").onclick=
+function myFunction(){   /*this is the function that actually converts the temperature*/
+
+let fahrenheit=  parseInt(document.getElementById("txtFahrenheit").value); /*this says that the inputted temperature is a number*/
+let b= ((parseFloat(fahrenheit) - 32)/1.8).toFixed(2); /*the equation to convert*/
+document.getElementById("card-content").innerHTML=b; /*paste the results*/
+}
+
+</script>
+
+<a href="../index.html" class="return-home">Return</a>
+
+</div>
+
+</body>
+</html>
