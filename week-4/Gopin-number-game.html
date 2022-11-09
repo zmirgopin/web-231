@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- opening code comment- code attribution 
+https://www.w3schools.com/bootstrap/bootstrap_ver.asp
+https://www.w3schools.com/JSREF/jsref_if.asp
+-->
+    <title>WEB 231 – Enterprise JavaScript I</title> 
+
+    <!--link to external stylesheet-->
+
+    <link href="Gopin-number-game.css" rel="stylesheet" type="text/css">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<div id="container">
+    
+    <h1 class="app-header">Welcome to the numbers game!</h1>
+
+    <div id="Numbers-Game">
+        <div class="card">
+            <div class="card-title">Pick a number between 1 and 10</div>
+                    <div class="card-content">
+                            
+                       <!--form to guess the number--> 
+                        <div class="form">
+                                        <div class="form-field">
+
+                                            <label for="txtMyNumber">Guess the number:</label>
+                                            <input type="number" id="txtMyNumber" class="input">
+
+                                        </div>
+
+                                        <div class="form-feild">
+                                        <!--button with the onclick command so that the results appear when you click-->
+                                            <button id="btnSubmit" class="btn btn-primary full width">Submit</button>
+                                        </div>
+                            </div>
+                        </div>
+             </div>
+
+        </div>
+    </div>
+ <!--this is where the results of the conversion appear-->
+    <div id="Results">
+        <div class="card">
+            <div class="card-title">Results</div> 
+            <div id="card-content"></div>
+        </div>
+    </div>
+
+
+
+
+    <!--javascript code-->
+    <script>
+       
+        const rnd = Math.floor(Math.random() * 10)+1;   //generate random number between 1 and 10
+       
+       
+       document.getElementById("btnSubmit").onclick=  //onclick action 
+       
+       function myFunction(){                        //function that compares the generated and guessed numbers 
+
+       
+           let myNumber=  parseInt(document.getElementById("txtMyNumber").value);        //defining the guessed number as a variable
+        
+              
+                        if (myNumber > rnd) {                                          //if guessed number is more than random number
+                            document.getElementById("card-content").innerHTML = ("The number is less than " + myNumber);  //at the designated area the message will appear
+                           }
+                        else if (myNumber < rnd) {                                      //if guessed number is less than random number
+                            document.getElementById("card-content").innerHTML = ("The number is greater than " + myNumber);    //at the designated area the message will appear                                          
+                            }
+                        else{                                                           //if guessed number matches the random number 
+                            document.getElementById("card-content").innerHTML ="Congratulations! You picked the correct number!" } //at the designated area the message will appear                                          
+                        
+                        }  //end of function 
+                   
+       
+    </script>
+
+<a href="../index.html" class="return-home">Return</a>
+
+
+
+</body>
+</html>
