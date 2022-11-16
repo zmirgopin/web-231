@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- opening code comment- code attribution 
+https://www.w3schools.com/tags/tag_select.asp
+https://www.w3schools.com/jsref/jsref_dowhile.asp
+https://www.w3schools.com/jsref/jsref_for.asp
+https://www.w3schools.com/js/js_loop_while.asp
+https://www.mathsisfun.com/numbers/fibonacci-sequence.html
+-->
+    <title>WEB 231 – Enterprise JavaScript I</title> 
+
+    <!--link to external stylesheet-->
+
+    <link href="Gopin-sequence-game.css" rel="stylesheet" type="text/css">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<div id="container">
+    
+    <h1 class="app-header">Welcome to the sequence game!</h1>
+
+    <div id="Sequence-Game">
+        <div class="card">
+            <div class="card-title">Sequence Selection Form</div>
+                    <div class="card-content">
+                            
+                 <!--form to guess the number--> 
+                    <div class="form">
+                             <div class="form-field">
+
+                                     <label for="sequence">Choose a number sequence</label>
+
+                                     <select id="sequence" class="drop-down-menu">
+
+                                     <option value="select">--Select--</option>
+                                     <option value="fibonacci">Fibonacci Sequence</option>
+                                     <option value="even">Even Numbers</option>
+                                     <option value="odd">Odd Numbers</option>   
+
+                                    </select>
+
+                                    </div>
+
+                                        <div class="form-feild">
+                                        <!--button with the onclick command so that the results appear when you click-->
+                                            <button id="btnDisplaySequence" class="btn btn-primary full width">Display Sequence</button>
+                                        </div>
+                            </div>
+                        </div>
+             </div>
+
+        </div>
+    </div>
+ <!--this is where the results of the conversion appear-->
+ <div id="Results">
+    <div class="card">
+        <div class="card-title">Sequence Results</div> 
+        <p id="card-content"></p>
+    </div>
+</div>
+
+
+
+
+<!--javascript code-->
+<script>
+
+
+document.getElementById("btnDisplaySequence").onclick=
+
+function myFunction(){
+
+let choice = document.getElementById("sequence").value;
+
+    if(choice === "fibonacci"){
+        let num1= 0;
+        let num2= 1;
+        let next;
+        let fibonacciSequenceText="";
+
+            while (num1 <40){
+            fibonacciSequenceText += num1 + ", ";
+
+            next= num1 + num2;
+            num1= num2;
+            num2= next;
+            }
+
+        document.getElementById("card-content").innerHTML = fibonacciSequenceText.slice(0, -2);
+    }
+
+    else if (choice === "even"){
+
+        let num3 = 2;
+        let coming;
+        let evenText="";
+
+            do{
+
+                evenText += num3 + ", ";
+                coming = num3 + 2;
+                num3= coming;
+            }
+
+            while (num3 < 20);
+        
+        document.getElementById("card-content").innerHTML = evenText.slice(0, -2);
+
+    }
+
+    else if(choice === "odd"){
+
+        let oddText="";
+
+            for (let num4=1; num4< 20; num4+=2){
+
+                oddText += num4 + ", ";
+            }
+
+        document.getElementById("card-content").innerHTML = oddText.slice(0, -2);
+
+    }
+
+    else{
+        alert("Invalid selection, please try again!");
+    }
+
+
+}
+
+</script>
+<a href="../index.html" class="return-home">Return</a>
+
+
+
+</body>
+</html>
