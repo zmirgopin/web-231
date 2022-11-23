@@ -28,7 +28,7 @@ https://www.mathsisfun.com/numbers/fibonacci-sequence.html
             <div class="card-title">Sequence Selection Form</div>
                     <div class="card-content">
                             
-                 <!--form to guess the number--> 
+                 <!--form to choose which sequence--> 
                     <div class="form">
                              <div class="form-field">
 
@@ -46,7 +46,8 @@ https://www.mathsisfun.com/numbers/fibonacci-sequence.html
                                     </div>
 
                                         <div class="form-feild">
-                                        <!--button with the onclick command so that the results appear when you click-->
+                                            
+                                        <!--button so that the results appear-->
                                             <button id="btnDisplaySequence" class="btn btn-primary full width">Display Sequence</button>
                                         </div>
                             </div>
@@ -55,7 +56,8 @@ https://www.mathsisfun.com/numbers/fibonacci-sequence.html
 
         </div>
     </div>
- <!--this is where the results of the conversion appear-->
+
+ <!--this is where the results of the selected sequence appear-->
  <div id="Results">
     <div class="card">
         <div class="card-title">Sequence Results</div> 
@@ -70,70 +72,70 @@ https://www.mathsisfun.com/numbers/fibonacci-sequence.html
 <script>
 
 
-document.getElementById("btnDisplaySequence").onclick=
+document.getElementById("btnDisplaySequence").onclick= //the function will occur upon clicking
 
 function myFunction(){
 
-let choice = document.getElementById("sequence").value;
+let choice = document.getElementById("sequence").value; //capture the requested sequence 
 
-    if(choice === "fibonacci"){
-        let num1= 0;
+    if(choice === "fibonacci"){  //if selected choice is fibonacci sequence...
+        let num1= 0;  //declare the necessary variables 
         let num2= 1;
         let next;
         let fibonacciSequenceText="";
 
             while (num1 <40){
-            fibonacciSequenceText += num1 + ", ";
+            fibonacciSequenceText += num1 + ", "; //add a comma after each number 
 
-            next= num1 + num2;
+            next= num1 + num2;   //this is the "equation" of the sequence
             num1= num2;
             num2= next;
             }
 
-        document.getElementById("card-content").innerHTML = fibonacciSequenceText.slice(0, -2);
+        document.getElementById("card-content").innerHTML = fibonacciSequenceText.slice(0, -2); // diplay the fibonacci sequence
     }
 
-    else if (choice === "even"){
+    else if (choice === "even"){  //if selected choice is even numbers....
 
-        let num3 = 2;
+        let num3 = 2;  //declare variables 
         let coming;
         let evenText="";
 
-            do{
+            do{    //the code to be executed
 
-                evenText += num3 + ", ";
+                evenText += num3 + ", "; //add a comma after each number 
                 coming = num3 + 2;
                 num3= coming;
             }
 
-            while (num3 < 20);
+            while (num3 < 20);  //as long as the numbers stay below 20
         
-        document.getElementById("card-content").innerHTML = evenText.slice(0, -2);
+        document.getElementById("card-content").innerHTML = evenText.slice(0, -2); //display even numbers
 
     }
 
-    else if(choice === "odd"){
+    else if(choice === "odd"){ //if selected choice is odd....
 
-        let oddText="";
+        let oddText="";    //declare variables 
 
-            for (let num4=1; num4< 20; num4+=2){
+            for (let num4=1; num4< 20; num4+=2){  // start at 1, as long as it stays under 20, add in increments of two
 
-                oddText += num4 + ", ";
+                oddText += num4 + ", "; //add a comma after each number 
             }
 
-        document.getElementById("card-content").innerHTML = oddText.slice(0, -2);
+        document.getElementById("card-content").innerHTML = oddText.slice(0, -2); //display odd numbers 
 
     }
 
-    else{
-        alert("Invalid selection, please try again!");
+    else{   //if choose "select"...
+        alert("Invalid selection, please try again!"); //an alert appears
     }
 
 
 }
 
 </script>
-<a href="../index.html" class="return-home">Return</a>
+<a href="../index.html" class="return-home">Return</a> <!--return to index-->
 
 
 

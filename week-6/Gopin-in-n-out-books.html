@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- code attribution 
+Title: Gopin-in-n-out-books.html
+Author: Zahava Gopin 
+Date: 23 November 2022
+Description: Book List
+-->
+
+    <title>WEB 231 – Enterprise JavaScript I</title> 
+
+    <!--link to external stylesheet-->
+
+    <link href="Gopin-in-n-out-books.css" rel="stylesheet" type="text/css">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="container">
+    
+    <h1 class="app-header">Welcome to In-N-Out-Books</h1>  <!--This is the heading.-->
+
+    <div id="In-N-Out-Books">
+        <div class="card">
+            <div class="card-title">My Favorites</div>
+                    <div class="card-content">
+                            
+                 <!--The form to select a favorite.--> 
+                    <div class="form">
+                             <div class="form-field">
+
+                                     <label for="favoriteList">Choose a listing:</label>
+
+                                     <select id="favoriteList" class="drop-down-menu">   <!--The drop down menu. -->
+
+                                     <option value="select">--Select--</option>             <!--The three menu options.-->
+                                     <option value="books">Top 3 Favorite Books</option>
+                                     <option value="authors">Top 3 Favorite Authors</option>
+
+                                    </select>
+
+                                    </div>
+
+                                        <div class="form-feild">
+                                               <!--The button to click so the results will appear.-->                                 
+                                            <button id="btnDisplayListing" class="btn btn-primary full width">Display Listing</button>  
+                                        </div>
+                            </div>
+                        </div>
+                        
+             </div>
+
+        </div>
+    </div>
+
+
+    <a href="../index.html" class="return-home">Return</a> <!--The option to return to index.-->
+
+
+ <!--These are the two tables that will appear based on the selected option (above).-->
+
+
+ <div id="favoriteBooks">                    <!--If favorite books is selected, this table will appear.-->
+    <div class="card">
+        <div class="card-title">Top 3 Favorite Books</div> 
+        <div  id="card-content"> 
+            <table>
+                <tr>
+                    <th>ISBN</th>            <!--The heading (row) of the table. -->
+                    <th>Title</th>
+                    <th>Pages</th>
+                </tr>
+
+                <tr>
+                    <td id="stripedPyjamasIsbn"></td>         <!-- The first row is the information for the first book.-->
+                    <td id="stripedPyjamasTitle"></td>
+                    <td id="stripedPyjamasPages"></td>
+                </tr>
+
+                <tr>
+                    <td id="devilsBridgeIsbn"></td>           <!--The second row is the information for the second book.-->
+                    <td id="devilsBridgeTitle"></td>
+                    <td id="devilsBridgePages"></td>
+                </tr>
+
+                <tr>
+                    <td id="theHelpIsbn"></td>                 <!--The third row is the information for the third book. --> 
+                    <td id="theHelpTitle"></td>
+                    <td id="theHelpPages"></td>
+                </tr>
+                    
+            </table>
+        </div>
+     </div>
+</div>
+
+<div id="favoriteAuthors">           <!--If favorite authors is selected, this table will appear.-->
+    <div class="card">
+        <div class="card-title">Top 3 Favorite Authors</div> 
+        <div  id="card-content">
+            <table>
+                <tr>
+                    <th>Name</th>            <!--The heading (row) of the table.-->
+                    <th>Genre</th>
+                </tr>
+
+                <tr>
+                    <td id="pattersonName"></td>          <!--The first row will give information of the first author.-->
+                    <td id="pattersonGenre"></td>
+                </tr>
+
+                <tr>
+                    <td id="grishamName"></td>            <!--The second row will give information about the second author.-->
+                    <td id="grishamGenre"></td>
+                </tr>
+
+                <tr>
+                    <td id="rowlingName"></td>            <!--The third row will give information about the third author.-->
+                    <td id="rowlingGenre"></td>
+                </tr>
+                    
+            </table>    
+        </div>
+     </div>
+</div>
+
+<script>
+/**
+================================
+Title: Gopin-in-n-out-books.html
+Author: Zahava Gopin 
+Date: 23 November 2022
+Description: Book List
+================================
+*/
+
+        document.getElementById("favoriteBooks").style.display = "none"; //None of the tables should be displayed initially. 
+        document.getElementById("favoriteAuthors").style.display = "none";
+
+
+const book1 = {                           //The list of all the "objects" (or the information about each book/author).
+    isbn: 9781862305274,
+    title: "The Boy in the Striped Pyjamas",
+    pages: 224
+};
+
+const book2 = {
+    isbn: 9781542021296,
+    title: "Beneath Devils Bridge",
+    pages: 347
+};
+
+const book3 = {
+    isbn: 9780425232200,
+    title: "The Help",
+    pages: 544
+};
+
+const author1 = {
+    name: "James Patterson",
+    genre: "Thriller"
+};
+
+const author2 = {
+    name: "John Grisham",
+    genre: "Legal Thriller"
+};
+
+const author3 = {
+    name: "J.K. Rowling",
+    genre: "Fantasy"
+};
+ 
+
+document.getElementById("btnDisplayListing").onclick=  //The on-click function when user clicks "display listing". 
+
+function myFunction(){
+
+    
+    let choice = document.getElementById("favoriteList").value;       //Capture the value from the drop down menu/selected option. 
+
+    document.getElementById("stripedPyjamasIsbn").innerHTML= book1.isbn;          /*Paste the information into the 
+                                                                                    correct cells of the table*/
+    document.getElementById("stripedPyjamasTitle").innerHTML= book1.title;
+    document.getElementById("stripedPyjamasPages").innerHTML= book1.pages;
+
+    document.getElementById("devilsBridgeIsbn").innerHTML= book2.isbn;
+    document.getElementById("devilsBridgeTitle").innerHTML= book2.title;
+    document.getElementById("devilsBridgePages").innerHTML= book2.pages;
+
+    document.getElementById("theHelpIsbn").innerHTML= book3.isbn;
+    document.getElementById("theHelpTitle").innerHTML= book3.title;
+    document.getElementById("theHelpPages").innerHTML= book3.pages;
+
+    document.getElementById("pattersonName").innerHTML= author1.name;
+    document.getElementById("pattersonGenre").innerHTML= author1.genre;
+
+    document.getElementById("grishamName").innerHTML= author2.name;
+    document.getElementById("grishamGenre").innerHTML= author2.genre;
+
+    document.getElementById("rowlingName").innerHTML= author3.name;
+    document.getElementById("rowlingGenre").innerHTML= author3.genre;
+
+    if(choice==="books"){                                                     //If "favorite books" is selected, display the books table.
+        document.getElementById("favoriteBooks").style.display = "block";
+        document.getElementById("favoriteAuthors").style.display = "none";
+    }
+
+    else{};
+
+    if(choice==="authors"){                                                  //if "favorite author" is selected, display the authors table.
+        document.getElementById("favoriteBooks").style.display = "none";
+        document.getElementById("favoriteAuthors").style.display = "block";
+    }
+
+    else{};
+
+    if(choice=== "select"){                                                    //If "selected" is selected, don't display anything. 
+        document.getElementById("favoriteBooks").style.display = "none";
+        document.getElementById("favoriteAuthors").style.display = "none";
+    }
+
+    else{};
+
+}
+
+</script>
+
+</div>
+
+</body>
+
+</html>
