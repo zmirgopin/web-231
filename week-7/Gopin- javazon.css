@@ -1,0 +1,161 @@
+/** 
+Title: Gopin-javazon.css
+Author: Zahava Gopin
+Date: 28 November 2022
+Description: css styling for javazon website
+*/
+.app-header{                   /** Styling for app header.*/
+    text-align: center;
+    font-weight: 400;
+}
+
+body{                           /** Styling for the body of the document*/
+    font-family: 'Oswald','Verdana','Arial',sans-serif;
+
+}
+#container{
+    padding: 10px;
+}
+
+#Javazon-List{                 /**Styling for the upper card of the document. */
+    max-width: 600px;
+    margin: 3% auto 0;
+}
+
+#Products{                     /**Styling for each specific table. */
+    max-width: 600px;
+    margin: 3% auto 0;
+}
+
+#Services{
+    max-width: 600px;
+    margin: 3% auto 0;
+}
+
+#Employees{
+    max-width: 600px;
+    margin: 3% auto 0;
+}
+
+
+.card{                         /**Styling for both cards. */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+
+.card-title{                         /**Styling for the card title.*/
+    text-align: center;
+    font-size: 2em;
+    color: #4f3674;
+    font-weight: 400;
+}
+
+#card-content{                        /**Styling for the card content.*/                                  
+    padding: 2px 16px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.card:hover{                        /**Styling for the card hover.*/
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn{                                 /**Styling for the button. */
+    border-radius: 4px;
+    border: 2px solid black;  
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 15px 32px;
+    color: black;
+    width: 62%;
+}
+
+.btn-primary{
+    border-radius: 4px;
+    border: 2px solid black;  
+    background-color: #4f3674;
+    color: white;
+}
+
+
+.btn-primary:hover{
+    background-color: #D6A800;
+    color: #4f3674;
+}
+
+.drop-down-menu{                  /**Styling for the drop down menu*/
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.full-width{
+    width:100%;
+}
+
+.form {                            /**Styling for the form. */
+    display: -ms-inline-grid;
+    grid-template-columns: auto;
+}
+
+.form-field{
+    padding: 20px;
+}
+
+
+.return-home{                    /**Styling for the return home button*/
+    color: #453674;
+    text-decoration: none;
+    margin-left:460px;
+}
+
+.return-home:hover{
+    background-color: #d6a800;
+    color: #4f3674;
+}
+
+.return-home:visited{
+    color: #3C275A;
+}
+
+table{                                    /**Styling for all of the tables. */
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+th{                                         /**Styling for all of the table headers. */     
+   
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4f3674;
+    color: white;
+    border: 1px;
+    border-style: solid;
+    border-color: #ddd;
+    font-size: 10px;
+}
+
+td{                                      /**Styling for all of the table data cells. */ 
+    text-align: left;
+    border: 1px;
+    border-style: solid;
+    border-color: #ddd;
+    font-size: 1px;
+}
+
+tr:hover{                          /**Styling for the table cell hover. */
+    background-color: #D6A800;
+    color: #4f3674;
+    cursor: pointer;
+}
+
