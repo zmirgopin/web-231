@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- code attribution 
+Title: Gopin-alphabet-game.html
+Author: Zahava Gopin 
+Date: 6 December 2022
+Description: An alphabet sequencing game 
+-->
+
+    <title>WEB 231 – Enterprise JavaScript I</title>  <!--Document title-->
+
+    <!--link to external stylesheet-->
+
+    <link href="Gopin-alphabet-game.css" rel="stylesheet" type="text/css">
+
+    <!-- link to google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="container">   <!--The main document container.-->
+    
+    <h1 class="app-header">Welcome to the Alphabet Game!</h1>  <!--This is the heading.-->
+    <div id="Alphabet-game">
+        <div class="card">                                     <!--The first form of the page.-->
+            <div class="card-title">Alphabet Number Form</div> <!--Title of the form. -->
+                <div class="card-content">                     <!--Content of the form. --> 
+                            
+                    <div class="form">  
+                        <div class="form-field">    
+                            <label for="input">Alphabet Letter Position</label>  <!--Label for the input form. -->
+                            <input id="txtPosition" class="input">               <!--Area to input the number. -->
+                        </div>
+
+                        <div class="form-feild">
+                            <button id="btnFindLetter" class="btn btn-primary full width">Find Letter</button>  <!--Button to click fo results. -->
+                        </div>
+                            
+                    </div>
+                        
+                </div>
+                        
+             </div>
+
+        </div>
+    </div>
+
+    <a href="../index.html" class="return-home">Return</a>   <!--The ability to return to the homepage. -->
+
+    <div id="Alphabet">                                      <!--Second div of the page. -->
+        <div class="card">
+            <div class="card-title">Letters in the Alphabet</div>   <!--Title of the form. -->
+                    <div class="card-content">                      <!--Where the letters of the alphabet/array content appears. -->
+                            <p id="demo"></p>            <!--<p> tags were used to differentiate between 2 pieces of information that need to be in "card-content.--> 
+                    </div>   
+            </div>
+        </div>
+    </div>
+
+  
+     <div id="Results">                            <!--The final form on the page, where result of the sequence appear. -->
+        <div class="card">
+            <div class="card-title">Results</div>  <!--Title of the form. -->
+            <div id="card-content">                <!--Where the results appear. -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>  
+
+/**
+================================
+Title: Gopin-alphabet-game.html
+Author: Zahava Gopin 
+Date: 6 December 2022
+Description: an alphabet sequencing game. 
+================================
+*/
+
+const alphabet= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];  //The array containing the alphabet 
+
+let alphabetOutput= "";  //An empty text variable for the output of the array
+
+    for (let property in alphabet) {    //The for loop of the array that adds a comma to the object in the array. 
+        alphabetOutput += alphabet[property] + ", ";
+    }
+
+document.getElementById("demo").innerHTML=alphabetOutput.slice(0,-2);   //This slices off the last space and comma from the end of the array.
+
+document.getElementById("btnFindLetter").onclick = //The function that occurs upon clicking the button. 
+
+function myFunction(){
+    let pos=  parseInt(document.getElementById("txtPosition").value);   //Capturing the inputted number and assigning it to a variable
+
+    let letter= alphabet[pos -1];  //The object in the array that matches to the inputted value and moving every object down so that the first objects' index is valued at 1. 
+
+        if (letter === undefined) {     //If the letter is undefined (above 26)...
+            document.getElementById("card-content").innerHTML = ("There are not " + pos+ " letters in the alphabet."); //A message will appear in the results form 
+            
+        } else {                         //Otherwise the equivalent letter appears in a messaige in the results div. 
+            document.getElementById("card-content").innerHTML = (letter + " is at position " + pos + " in the alphabet.");
+        }
+}
+
+</script> 
