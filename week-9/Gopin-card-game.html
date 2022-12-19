@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- code attribution 
+Title: Gopin-card-game.html
+Author: Zahava Gopin 
+Date: 18 December 2022
+Description: An card game 
+-->
+
+    <title>WEB 231 – Enterprise JavaScript I</title>  <!--Document title-->
+
+    <!--link to external stylesheet-->
+
+    <link href="Gopin-card-game.css" rel="stylesheet" type="text/css">
+
+    <!-- link to google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--Link to icons -->
+    <script src: "https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css" ></script>
+
+</head>
+<body>
+<div id="container">   <!--The main document container.-->
+    
+    <h1 class="app-header">Welcome to the Card Game!</h1> <!--This is the heading-->
+
+    <div id="Card-game">
+        <div class="card"><!--The first form of the page.-->          
+            <div class="card-title">Card Dealer</div> <!--Title of the form. -->
+            <div class="card-content"> <!--Content of the form.-->
+                <button id="btnDealCards" class="btn btn-primary full width">Deal Cards</button> <!--Button that will 'deal' the cards.-->
+            </div>
+        </div>
+    </div>
+    
+    <a href="../index.html" class="return-home">Return</a><!--return to home. -->
+
+    <div id="player-card-container"> <!--Second form where the shuffled cards appear.-->
+    <div class="card">                  
+        <div class="card-title">Shuffle</div> <!--Title of the form. -->
+        <div id="player-card" class="card-content"><!--Content of the form. -->
+        </div>
+    </div>
+    </div>
+    
+
+<script> 
+/**
+================================
+Title: Gopin-card-game.html
+Author: Zahava Gopin 
+Date: 18 December 2022
+Description: an card game. 
+================================
+*/
+
+   class Card{  //Card class with a constructor with parameters for face and suit.
+        constructor(face, suit){
+            this.face = face;
+            this.suit = suit;
+
+        }
+    }
+
+class Dealer{  //Dealer class with a constructor with no parameters.
+    CARD_COUNT = 52;  //variable named CARD_COUNT with a default value of 52.
+    cards = ""; //variable named cards with an empty array.
+    faces= ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]; //Variable named faces and assign it an array of the faces in a card deck
+    suits = ["Hearts", "Diamonds", "Clubs", "Spades"];//Variable named suits as assign it an array of the suits in a card deck.
+
+        constructor(){ 
+        
+        this.getDeckOfCards;   //Call the getDeckOfCards function in the constructor.
+        this.shuffle;
+        }
+       
+    }
+
+
+
+function getDeckOfCards (){  //Function named getDeckOfCards with no parameters.
+
+    /**
+     * loop for the number of cards in a deck
+     */
+
+    for(let count=0; count<this.CARD_COUNT; count++){
+        /**
+         * During every loop a new card object will be created and stored in the cards array
+         */
+
+        this.cards[count] = new Card(this.faces [count % 13], this.suits [Math.floor(count / 13)]);
+    }
+}//end of the getDeckOfCards function
+
+function shuffle(){ //Function named shuffle with no parameters.
+/**
+ * This function will shuffle the cards by replacing the first card with the second, and the second with the temp card.
+ */
+
+    for (let firstCard = 0; firstCard <this.CARD_COUNT; firstCard++){
+        const secondCard = Math.floor(Math.random()*this.CARD_COUNT);
+        let tempCard =  this.cards[firstCard];
+        this.cards = secondCard;
+        secondCard = tempCard;
+     
+    }
+}//end of the shuffle function. 
+
+function buildPlayingCard(card, suitIcon, faceColor, suitColor){
+    /**
+     * This function returns the cards
+     */
+    return '<div id="player-card-container"><div class="card"> <div class= "card-title">style= "text-align: left; font-size: 20px; padding-left: 10px; color: ${faceColor}">${}</div><div class= "card-content" style= "font-size: 28px; padding-bottom: 25px;"> <span class= "${suitIcon}" style= "color: ${}"></span></div></div></div>'
+
+}//end of buildPlayingCard function
+
+
+    document.getElementById("btnDealCards").onclick = //onclick event for the html button.
+
+    function myFunction(){
+
+        let dealer = new Dealer();  //A new dealer objects
+
+        dealer.shuffle();//calling the shuffle function
+
+        let cardOutputWithIcon = ""; //empty value for the output. 
+
+        /**
+         * Loop the array of cards
+         */
+        for (const card of dealer.cards)
+        {
+            switch (card.suit)  //card.suit will determine the cards suit.
+            {
+                case 'Hearts':    
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-heart", "red", "red");
+                break;
+
+                case 'Diamonds':
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-diamonds", "red", "red");
+                break;
+
+                case 'Clubs': 
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-club", "black", "black");
+                break;
+
+                case 'Spades': 
+                     cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-spade", "black", "black");
+                break; 
+
+            }
+        }
+
+        document.getElementById("player-card-container").innerHTML = cardOutputWithIcon;   //where to place the cards. 
+    }
+
+</script>
